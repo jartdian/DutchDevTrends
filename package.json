@@ -1,0 +1,17 @@
+{
+  "name": "dutchdevtrends_frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chart.js": "^4.4.1",
+    "leaflet": "^1.9.4",
+    "modern-normalize": "^2.0.0"
+  }
+}
