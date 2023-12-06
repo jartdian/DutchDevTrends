@@ -8,10 +8,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "chart.js": "^4.4.1",
-    "leaflet": "^1.9.4",
-    "modern-normalize": "^2.0.0"
   }
 }
