@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  let map = L.map("map").setView([51.9225, 4.47917], 10);
+  let map = L.map("map").setView([52.0907, 5.1214], 10);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "© OpenStreetMap contributors",
   }).addTo(map);
@@ -7,8 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch("https://dutch-dev-trends-backend.vercel.app/languages")
     .then((response) => response.json())
     .then((citiesData) => {
-      console.log("Received data:", citiesData); // Log the received data
-
       // Loop through the cities and add markers
       Object.keys(citiesData).forEach((cityName) => {
         let city = citiesData[cityName];
@@ -22,17 +20,17 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch((error) => console.error("Error fetching data:", error));
 
-  // Function to create a Chart.js popup
   function createChartPopup(cityName, data) {
     let popupContent = document.createElement("div");
     popupContent.innerHTML =
       '<canvas id="chart" width="100%" height="100%"></canvas>';
 
-    // Create the bar chart
     let ctx = popupContent.querySelector("#chart").getContext("2d");
     let languages = Object.keys(data); // languages
-    let values = Object.values(data); // values 
-    let decodedLanguages = languages.map(label => decodeURIComponent(label.toLowerCase()));
+    let values = Object.values(data); // values
+    let decodedLanguages = languages.map((label) =>
+      decodeURIComponent(label.toLowerCase())
+    );
 
     new Chart(ctx, {
       type: "bar",
@@ -49,11 +47,11 @@ document.addEventListener("DOMContentLoaded", function () {
         ],
       },
       options: {
-        indexAxis: 'y',
+        indexAxis: "y",
         scales: {
-         y: {
-          beginAtZero: false
-         }
+          y: {
+            beginAtZero: false,
+          },
         },
       },
     });
